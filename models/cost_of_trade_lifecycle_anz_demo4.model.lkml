@@ -30,6 +30,6 @@ explore: fact_trade {
   }
 }
 
-explore: fact_trade_vs_subfunction {
+explore: fact_trade_vs_subfunction_name {
   label: "Fact Trade vs Sub-Function"
 }
