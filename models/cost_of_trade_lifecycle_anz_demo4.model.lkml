@@ -29,3 +29,7 @@ explore: fact_trade {
     relationship: many_to_one
   }
 }
+
+explore: fact_trade_vs_subfunction {
+  label: "Fact Trade vs Sub-Function"
+}
