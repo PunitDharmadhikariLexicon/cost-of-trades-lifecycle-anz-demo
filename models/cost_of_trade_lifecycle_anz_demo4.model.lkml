@@ -22,5 +22,10 @@ explore: dim_owner {}
 
 explore: dim_strategy {}
 
-explore: fact_trade {}
-
+explore: fact_trade {
+  join: dim_function {
+    type: left_outer
+    sql_on: ${fact_trade.segmentid} = ${dim_function.id} ;;
+    relationship: many_to_one
+  }
+}
