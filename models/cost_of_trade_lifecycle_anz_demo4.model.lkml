@@ -33,3 +33,7 @@ explore: fact_trade {
 explore: fact_trade_vs_subfunction_name {
   label: "Fact Trade vs Sub-Function"
 }
+
+explore: cost_vs_subfunction {
+  label: "Cost vs Sub-Function"
+}
