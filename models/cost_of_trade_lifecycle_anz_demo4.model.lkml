@@ -32,7 +32,4 @@ explore: fact_trade {
 
 explore: cost_vs_subfunction {
   label: "Cost vs Sub-Function"
-  fields:[
-    Sub_Function, Function
-  ]
 }
