@@ -43,7 +43,7 @@ view: cost_vs_subfunction {
   }
 
   dimension: sort_key {
-    type: string
+    type: number
     sql: ${TABLE}."SortKey" ;;
   }
 
@@ -60,8 +60,8 @@ view: cost_vs_subfunction {
   set: detail {
     fields: [
         sort_key,
-	ftvsn_fact_trade_vs_subfunction_subfunctionname,
-	ftvsn_fact_trade_vs_subfunction_sum_of_value
+  ftvsn_fact_trade_vs_subfunction_subfunctionname,
+  ftvsn_fact_trade_vs_subfunction_sum_of_value
     ]
   }
 }
