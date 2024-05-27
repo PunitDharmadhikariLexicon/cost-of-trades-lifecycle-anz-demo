@@ -12,9 +12,9 @@ view: fact_trade_vs_subfunction_name {
             LIMIT 500
             )
       SELECT
-          fact_trade_vs_subfunction."dim_function.subfunctionname"  AS "fact_trade_vs_subfunction.subfunctionname",
-          fact_trade_vs_subfunction."dim_function.id"  AS "fact_trade_vs_subfunction.dim_function_id",
-          fact_trade_vs_subfunction."sum_of_value"  AS "fact_trade_vs_subfunction.sum_of_value"
+          fact_trade_vs_subfunction."dim_function.subfunctionname"  AS "Sub-Function",
+          CAST(fact_trade_vs_subfunction."dim_function.id" AS INTEGER) AS "SortKey",
+          fact_trade_vs_subfunction."sum_of_value"  AS "Sum of Cost"
       FROM fact_trade_vs_subfunction
       GROUP BY
           1,
@@ -32,24 +32,24 @@ view: fact_trade_vs_subfunction_name {
 
   dimension: fact_trade_vs_subfunction_subfunctionname {
     type: string
-    sql: ${TABLE}."fact_trade_vs_subfunction.subfunctionname" ;;
+    sql: ${TABLE}."Sub-Function" ;;
   }
 
   dimension: fact_trade_vs_subfunction_dim_function_id {
-    type: string
-    sql: ${TABLE}."fact_trade_vs_subfunction.dim_function_id" ;;
+    type: number
+    sql: ${TABLE}."SortKey" ;;
   }
 
   dimension: fact_trade_vs_subfunction_sum_of_value {
     type: number
-    sql: ${TABLE}."fact_trade_vs_subfunction.sum_of_value" ;;
+    sql: ${TABLE}."Sum of Cost" ;;
   }
 
   set: detail {
     fields: [
         fact_trade_vs_subfunction_subfunctionname,
-	fact_trade_vs_subfunction_dim_function_id,
-	fact_trade_vs_subfunction_sum_of_value
+        fact_trade_vs_subfunction_dim_function_id,
+        fact_trade_vs_subfunction_sum_of_value
     ]
   }
 }
