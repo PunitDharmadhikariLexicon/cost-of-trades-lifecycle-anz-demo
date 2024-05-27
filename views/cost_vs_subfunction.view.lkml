@@ -13,6 +13,7 @@ view: cost_vs_subfunction {
                   )
             SELECT
                 fact_trade_vs_subfunction."dim_function.subfunctionname"  AS "Sub-Function",
+                fact_trade_vs_subfunction."dim_function.functionname"  AS "Function-Name",
                 CAST(fact_trade_vs_subfunction."dim_function.id" AS INTEGER) AS "SortKey",
                 fact_trade_vs_subfunction."sum_of_value"  AS "Sum of Cost"
             FROM fact_trade_vs_subfunction
@@ -25,13 +26,15 @@ view: cost_vs_subfunction {
             FETCH NEXT 500 ROWS ONLY )
       SELECT
           fact_trade_vs_subfunction_name."SortKey"  AS "SortKey",
-          fact_trade_vs_subfunction_name."Sub-Function"  AS "ftvsn.fact_trade_vs_subfunction_subfunctionname",
-          fact_trade_vs_subfunction_name."Sum of Cost"  AS "ftvsn.fact_trade_vs_subfunction_sum_of_value"
+          fact_trade_vs_subfunction_name."Function-Name"  AS "Function",
+          fact_trade_vs_subfunction_name."Sub-Function"  AS "Sub-Function",
+          fact_trade_vs_subfunction_name."Sum of Cost"  AS "Cost"
       FROM fact_trade_vs_subfunction_name
       GROUP BY
-          2,
           3,
-          1
+          2,
+          4,
+          1,
       ORDER BY
           1
       FETCH NEXT 500 ROWS ONLY ;;
