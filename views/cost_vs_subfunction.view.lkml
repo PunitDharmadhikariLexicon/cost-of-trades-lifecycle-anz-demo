@@ -47,6 +47,10 @@ FETCH NEXT 500 ROWS ONLY;;
   dimension: Cost {
     type: number
     sql: ${TABLE}."Cost" ;;
+    drill_fields: [
+      Sub_Function,
+      Function
+    ]
   }
 
   set: detail {
