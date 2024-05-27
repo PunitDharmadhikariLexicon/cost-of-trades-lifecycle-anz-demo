@@ -63,10 +63,10 @@ FETCH NEXT 500 ROWS ONLY;;
   }
   measure: DrillField {
     type: sum
+    sql: ${TABLE}."Cost" ;;
     drill_fields: [
       Sub_Function,
       Function
     ]
   }
-
 }
