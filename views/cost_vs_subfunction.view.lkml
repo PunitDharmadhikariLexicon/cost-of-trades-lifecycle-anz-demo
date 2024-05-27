@@ -34,7 +34,7 @@ view: cost_vs_subfunction {
           3,
           2,
           4,
-          1,
+          1
       ORDER BY
           1
       FETCH NEXT 500 ROWS ONLY ;;
