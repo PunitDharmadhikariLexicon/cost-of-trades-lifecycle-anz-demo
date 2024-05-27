@@ -64,7 +64,7 @@ FETCH NEXT 500 ROWS ONLY;;
   measure: DrillField {
     type: sum
     sql: ${TABLE}."Cost" ;;
-    drill_fields: [Function, Sub_Function]
+    drill_fields: [Function, Sub_Function, Cost]
     link: {
       label: "Drill Down"
       url: "{{ link }}&pivot=Sub_Function"
