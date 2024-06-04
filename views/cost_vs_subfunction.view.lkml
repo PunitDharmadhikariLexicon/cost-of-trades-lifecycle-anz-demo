@@ -6,9 +6,9 @@ view: cost_vs_subfunction {
         dim_function."id" AS "dim_function_id",
         dim_function."subfunctionname" AS "dim_function_subfunctionname",
         dim_function."functionname" AS "dim_function_functionname",
-        COALESCE(SUM(CAST(fact_trade."value" AS DOUBLE PRECISION)), 0) AS "sum_of_value"
+        COALESCE(SUM(CAST(fact_trade."cost" AS DOUBLE PRECISION)), 0) AS "sum_of_value"
     FROM public."FACT_Trade" AS fact_trade
-    LEFT JOIN public."DIM_Function" AS dim_function ON fact_trade."segmentid" = dim_function."id"
+    LEFT JOIN public."DIM_Function" AS dim_function ON fact_trade."functionid" = dim_function."id"
     GROUP BY dim_function."id", dim_function."subfunctionname", dim_function."functionname"
     ORDER BY dim_function."id" ASC
     LIMIT 500

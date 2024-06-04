@@ -35,10 +35,10 @@ view: fact_trade {
     value_format_name: id
     sql: ${TABLE}."ownerid" ;;
   }
-  dimension: segmentid {
+  dimension: functionid {
     type: number
     value_format_name: id
-    sql: ${TABLE}."segmentid" ;;
+    sql: ${TABLE}."functionid" ;;
   }
   dimension: tradestrategyid {
     type: number
@@ -49,9 +49,9 @@ view: fact_trade {
     type: string
     sql: ${TABLE}."tradetype" ;;
   }
-  dimension: value {
+  dimension: cost {
     type: number
-    sql: ${TABLE}."value" ;;
+    sql: ${TABLE}."cost" ;;
   }
   measure: count {
     type: count
@@ -59,6 +59,6 @@ view: fact_trade {
   }
   measure: sum {
     type: sum
-    drill_fields: [value]
+    drill_fields: [cost]
   }
 }
